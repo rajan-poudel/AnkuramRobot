@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style.css')}}">
+    <title>AnkuramRobot</title>
+    <style>
+        video {
+          width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+</style>
+</head>
+<body>
+
+  <div class="navigation" id="navigation">
+    <ul>
+        <li class="list active">
+            <a href="/">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="text">Home</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="/robot">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <span class="text">Robot</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="/chat">
+                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                <span class="text">Chat</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="/photo">
+                <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                <span class="text">Photos</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="#">
+                <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                <span class="text">Settings</span>
+            </a>
+        </li>
+        <div class="indicator"></div>
+    </ul>
+</div>
+<div class="arrow" id="arrow">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</div>
+<script>
+
+const list = document.querySelectorAll('.list');
+function activeLink(){
+    list.forEach((item) =>
+    item.classList.remove('active'));
+    this.classList.add('active');
+}
+list.forEach((item) =>
+item.addEventListener('click',activeLink))
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <video id="myVideo" poster="{{url_for('static',filename='Video/first.gif')}}" loop>
+    </video>
+    
+</body>
+<script>
+    // document.documentElement.requestFullscreen();
+
+    var arrow = document.getElementById("arrow");
+
+arrow.addEventListener("click", function() {
+    document.getElementById("arrow").style.display = "none";
+    document.getElementById("navigation").style.bottom = "3vh";
+});
+
+    document.addEventListener('DOMContentLoaded', function() {
+            const myVideo = document.getElementById('myVideo');
+            let touchStartTime = 0;
+            const LONG_TOUCH_THRESHOLD = 500; // Time in milliseconds
+
+            myVideo.addEventListener('touchstart', function(e) {
+                touchStartTime = new Date().getTime();
+            });
+
+            myVideo.addEventListener('touchend', function(e) {
+                const touchEndTime = new Date().getTime();
+                const touchDuration = touchEndTime - touchStartTime;
+
+                if (touchDuration < LONG_TOUCH_THRESHOLD) {
+                    handleShortTouch(e);
+                } else {
+                    handleLongTouch(e);
+                }
+            });
+
+            myVideo.addEventListener('touchcancel', function(e) {
+                touchStartTime = 0; // Reset touch start time on touch cancel
+            });
+
+            function handleShortTouch(e) {
+                if (document.getElementById("arrow").style.display== "none"){
+                    document.getElementById("arrow").style.display = "block";
+                    document.getElementById("navigation").style.bottom = "-100px";
+
+                }
+                else{
+                  window.location.href = "/robot";
+                }
+            }
+        });
+    </script>
+</html>
