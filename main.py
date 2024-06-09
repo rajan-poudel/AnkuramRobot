@@ -1,6 +1,5 @@
-from flask import Flask , render_template ,request,redirect
+from flask import Flask,render_template
 import subprocess
-from imgix import UrlBuilder
 
 app = Flask(__name__)
 
@@ -14,19 +13,17 @@ def robot():
 
 @app.route('/chat')
 def index():
+    #sudo apt install florence
+    # subprocess.run('florence', shell=True)
     return render_template('index.html')
 
 @app.route('/games')
 def games():
-    #sudo apt install florence
-    # subprocess.run('florence', shell=True)
     return render_template('games.html')
 
 @app.route("/photo")
 def photo():
     # subprocess.run('rpicam-jpeg --output /static/test.jpg', shell=True)
-    ub = UrlBuilder("demo.imgix.net")
-    print(ub.create_url("test.jpg", {'w': 100, 'h': 100}))
     return render_template("photo.html")
 
 
