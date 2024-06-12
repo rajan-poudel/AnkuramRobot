@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style-photo.css')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/iba_logo.png') }}">
     <title>AnkuramRobot</title>
     <style>
         *{
-            margin:0;
-            padding:0;
+            margin: 0;
+            padding: 0;
         }
-        iframe{
-            width: 100vw;
+        .container{
+            background-color: #05224e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
+            width: 100vw;
         }
-        body {
-    overflow: hidden;
-    background-color: black;
-}
- 
-
+        body{
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
-<!-- HTML !-->
- <!-- HTML !-->
- 
- <div class="navigation" id="navigation">
+    <div class="navigation" id="navigation">
         <ul>
             <li class="list">
                 <a href="/">
@@ -67,15 +66,9 @@
         <span></span>
         <span></span>
     </div>
-    <div class="button" id="button">
-            <button class="button-79" role="button" onclick="document.getElementById('shareForm').submit();">Share</button>
-    </div>
-    </div>
-    <form id="shareForm" action="{{ url_for('share') }}" method="POST">
-        <input type="hidden" name="photo_name" value="{{ photo_name }}">
-    </form>
+</div>
 
-    <script>
+<script>
     
     const list = document.querySelectorAll('.list');
     function activeLink(){
@@ -89,16 +82,27 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-        <img src="{{url_for('static',filename=photo_name)}}" width="100%" height="100%" alt="image">
 
-    <script>
-        
-        var arrow = document.getElementById("arrow");
+    <div class="container">
+        <!-- Placeholder for the QR code -->
+        <div id="qrcode"></div>
+    </div>
+
+</body>
+<script>
+     const url = "{{ url }}";
+
+// Generate the QR code
+const qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: url,
+    width: 300,
+    height: 300
+});
+var arrow = document.getElementById("arrow");
 
 arrow.addEventListener("click", function() {
     document.getElementById("arrow").style.display = "none";
     document.getElementById("navigation").style.bottom = "3vh";
 });
-    </script>
-</body>
+</script>
 </html>

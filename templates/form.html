@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style-photo.css')}}">
+
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/iba_logo.png') }}">
     <title>AnkuramRobot</title>
     <style>
@@ -15,19 +16,11 @@
             width: 100vw;
             height: 100vh;
         }
-        body {
-    overflow: hidden;
-    background-color: black;
-}
- 
-
+        
     </style>
 </head>
 <body>
-<!-- HTML !-->
- <!-- HTML !-->
- 
- <div class="navigation" id="navigation">
+    <div class="navigation" id="navigation">
         <ul>
             <li class="list">
                 <a href="/">
@@ -41,20 +34,20 @@
                     <span class="text">Robot</span>
                 </a>
             </li>
-            <li class="list">
+            <li class="list active">
                 <a href="/chat">
                     <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
                     <span class="text">Chat</span>
                 </a>
             </li>
-            <li class="list active">
+            <li class="list">
                 <a href="/photo">
                     <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
                     <span class="text">Photos</span>
                 </a>
             </li>
             <li class="list">
-                <a href="/other">
+                <a href="/games">
                     <span class="icon"><ion-icon name="apps-outline"></ion-icon></span>
                     <span class="text">Other</span>
                 </a>
@@ -67,13 +60,12 @@
         <span></span>
         <span></span>
     </div>
-    <div class="button" id="button">
-            <button class="button-79" role="button" onclick="document.getElementById('shareForm').submit();">Share</button>
     </div>
-    </div>
-    <form id="shareForm" action="{{ url_for('share') }}" method="POST">
-        <input type="hidden" name="photo_name" value="{{ photo_name }}">
-    </form>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIPmy_e01MHG8Szt6ulv2lDwV6sWSGa6iX5E7iqXusp7ayRA/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+
+
+
 
     <script>
     
@@ -88,9 +80,9 @@
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-        <img src="{{url_for('static',filename=photo_name)}}" width="100%" height="100%" alt="image">
-
+    
+       
+        
     <script>
         
         var arrow = document.getElementById("arrow");

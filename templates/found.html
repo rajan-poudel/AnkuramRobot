@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/iba_logo.png') }}">
-    <title>AnkuramRobot</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style-photo.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/games.css')}}">
-    <style>
-        body{
-            overflow: hidden;
-        }
-        a{
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/iba_logo.png') }}">
+  <title>AnkuramRobot</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style-photo.css')}}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/games.css')}}"> -->
+  <link rel='stylesheet' href='https://rawcdn.githack.com/SochavaAG/example-mycode/master/_common/css/reset.css'>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/found.css')}}">
+
 </head>
 <body>
     <div class="navigation" id="navigation">
@@ -85,106 +79,37 @@ arrow.addEventListener("click", function() {
 
 
 
-
 <div class="ag-format-container">
     <div class="ag-courses_box">
-      <div class="ag-courses_item">
-        <a href="/virtualtour" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Ankuram Virtual Tour
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            <span class="ag-courses-item_date">
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScIPmy_e01MHG8Szt6ulv2lDwV6sWSGa6iX5E7iqXusp7ayRA/viewform?usp=sf_link" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Forms Submission
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            <span class="ag-courses-item_date">
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="/search" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Lost and Found System
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            <span class="ag-courses-item_date">
-            </span>
-          </div>
-        </a>
-      </div>
-  
+        {% for result in results %}
       <div class="ag-courses_item">
         <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
+          <div class="ag-courses-item_bg">
+          
+          {% set imgpath = "Upload_Folder/" ~ result.thinggot ~ ".png" %}
+          <img src="{{ url_for('static', filename=imgpath) }}">
+          </div>
   
           <div class="ag-courses-item_title">
-            Graphic Design
+            {{ result.thinggot }}
           </div>
   
           <div class="ag-courses-item_date-box">
-            Start:
+            Date:
             <span class="ag-courses-item_date">
-              04.11.2022
+                {{ result.date }}
             </span>
           </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Motion Design
-          </div>
-  
           <div class="ag-courses-item_date-box">
-            Start:
+            Phone:
             <span class="ag-courses-item_date">
-              30.11.2022
+                {{ result.phone }}
             </span>
           </div>
         </a>
-      </div>
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Motion Design
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              30.11.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-  
     </div>
-  </div>
+    {% endfor %}
+      </div>
+      </div>
 </body>
 </html>
