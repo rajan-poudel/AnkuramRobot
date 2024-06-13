@@ -44,6 +44,10 @@ def virtualtour():
 def form():
     return render_template('form.html')
 
+@app.route("/menu", methods=['GET', 'POST'])
+def menu():
+    return render_template('menu.html')
+
 @app.route("/photo")
 def photo():
     a = int(time.time())
