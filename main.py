@@ -13,11 +13,9 @@ CLIENT_ID = "34982a924cfeb95"
 im = pyimgur.Imgur(CLIENT_ID)
 
 client = MongoClient('mongodb+srv://rajanpoudelnp:HJjU4sEeDNVzOpgL@rajancluster.rpt2ua9.mongodb.net/?retryWrites=true&w=majority&appName=RajanCluster')
-db = client["thingfinder"]
-collection = db["thingfinder"] 
 
 app = Flask(__name__)
-app.config['Upload_Folder'] = 'C:/CodePlayground/Garbage/Robot-Facials/static/Upload_Folder'
+app.config['Upload_Folder'] = '/home/ankuram/AnkuramRobot/static/Upload_Folder'
 app.secret_key="supersecretkeydkdjd"
 
 @app.route("/")
@@ -46,14 +44,40 @@ def form():
 
 @app.route("/menu", methods=['GET', 'POST'])
 def menu():
-    return render_template('menu.html')
+    db = client["foodmenu"]
+    collection = db["foodmenu"]
+    document = collection.find_one({"user": "root"})
+    url = document.get("foodmenu_url")
+    url = url.split("?usp=sharing")[0]
+    url = url.replace("/view", "/preview")
+    return render_template('menu.html',url=url)
+    
+@app.route("/slides", methods=['GET', 'POST'])
+def slide():
+    db = client["slide"]
+    collection = db["slide"]
+    document = collection.find_one({"user": "root"})
+    url = document.get("slide_url")
+    url = url.split("?usp=sharing")[0]
+    url = url.replace("/view", "/preview")
+    return render_template('slide.html',url=url)
+    
+@app.route("/notice", methods=['GET', 'POST'])
+def notice():
+    db = client["notice"]
+    collection = db["notice"]
+    document = collection.find_one({"user": "root"})
+    url = document.get("notice_url")
+    url = url.split("?usp=sharing")[0]
+    url = url.replace("/view", "/preview")
+    return render_template('notice.html',url=url)
 
 @app.route("/photo")
 def photo():
     a = int(time.time())
     subprocess.run(f'rpicam-jpeg --output static/captures/{a}.jpeg', shell=True)
-    # return render_template("photo.html",photo_name=f'captures/{a}.jpeg')
-    return render_template("photo.html",photo_name=f'captures/test.jpg')
+    return render_template("photo.html",photo_name=f'captures/{a}.jpeg')
+    #return render_template("photo.html",photo_name=f'captures/test.jpg')
 
 @app.route("/share", methods=["POST"])
 def share():
@@ -70,6 +94,8 @@ def search():
 @app.route("/thinggot", methods=['GET', 'POST'])
 def thinggot():
     if request.method == "POST":
+        db = client["thingfinder"]
+        collection = db["thingfinder"] 
         phone = request.form.get("phone")
         thinggot = request.form.get("thinggot")
         file = request.files['file']
@@ -87,6 +113,8 @@ def thinggot():
 @app.route("/thinglost", methods=['GET', 'POST'])
 def thinglost():
     if request.method == "POST":
+        db = client["thingfinder"]
+        collection = db["thingfinder"]
         phone = request.form.get("phone")
         thinglost = request.form.get("thinglost")
         pattern = re.compile(re.escape(thinglost), re.IGNORECASE)
