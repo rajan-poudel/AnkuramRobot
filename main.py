@@ -58,8 +58,6 @@ def slide():
     collection = db["slide"]
     document = collection.find_one({"user": "root"})
     url = document.get("slide_url")
-    url = url.split("?usp=sharing")[0]
-    url = url.replace("/view", "/preview")
     return render_template('slide.html',url=url)
     
 @app.route("/notice", methods=['GET', 'POST'])
