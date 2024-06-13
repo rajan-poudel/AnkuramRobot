@@ -6,7 +6,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/iba_logo.png') }}">
     <title>AnkuramRobot</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style-photo.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/games2.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/games.css')}}">
     <style>
         body{
@@ -45,7 +44,7 @@
                 </a>
             </li>
             <li class="list active">
-                <a href="/other">
+                <a href="/other2">
                     <span class="icon"><ion-icon name="apps-outline"></ion-icon></span>
                     <span class="text">Other</span>
                 </a>
@@ -54,11 +53,6 @@
         </ul>
     </div>
     <div class="arrow" id="arrow">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="arrow2" id="arrow2">
         <span></span>
         <span></span>
         <span></span>
@@ -86,11 +80,6 @@ arrow.addEventListener("click", function() {
     document.getElementById("arrow").style.display = "none";
     document.getElementById("navigation").style.bottom = "3vh";
 });
-        var arrow2 = document.getElementById("arrow2");
-
-arrow2.addEventListener("click", function() {
-  window.location.href = "/other2"
-});
     </script>
 
 
@@ -100,11 +89,11 @@ arrow2.addEventListener("click", function() {
 <div class="ag-format-container">
     <div class="ag-courses_box">
       <div class="ag-courses_item">
-        <a href="/virtualtour" class="ag-courses-item_link">
+        <a href="/scribble" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Ankuram Virtual Tour
+            Skribbl
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -115,11 +104,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScIPmy_e01MHG8Szt6ulv2lDwV6sWSGa6iX5E7iqXusp7ayRA/viewform?usp=sf_link" class="ag-courses-item_link">
+        <a href="/carball" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Forms Submission
+            Car Ball
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -130,11 +119,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="/search" class="ag-courses-item_link">
+        <a href="/suduko" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Lost and Found System
+           Suduko
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -145,11 +134,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="/notice" class="ag-courses-item_link">
+        <a href="/codenames" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Notice
+           Code Names
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -158,13 +147,13 @@ arrow2.addEventListener("click", function() {
           </div>
         </a>
       </div>
-  
+
       <div class="ag-courses_item">
-        <a href="/slides" class="ag-courses-item_link">
+        <a href="/bingo" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Slides
+           Bingo
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -173,12 +162,13 @@ arrow2.addEventListener("click", function() {
           </div>
         </a>
       </div>
+
       <div class="ag-courses_item">
-        <a href="/menu" class="ag-courses-item_link">
+        <a href="/chess" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Food Menu
+           Chess
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -187,8 +177,7 @@ arrow2.addEventListener("click", function() {
           </div>
         </a>
       </div>
-  
-  
+
     </div>
   </div>
 </body>

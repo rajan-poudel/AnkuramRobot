@@ -34,13 +34,66 @@ def index():
 def other():
     return render_template('games.html')
 
+@app.route('/other2')
+def other2():
+    return render_template('games2.html')
+
 @app.route('/virtualtour')
 def virtualtour():
     return render_template('virtualtour.html')
 
+@app.route('/navigation')
+def navigation():
+    return render_template('navigation.html')
+
+@app.route('/emergency')
+def emergency():
+    return render_template('emergency.html')
+
+@app.route('/gamesfinal')
+def gamesfinal():
+    return render_template('gamesfinal.html')
+
+@app.route('/scribble')
+def scribble():
+    return render_template('scribble.html')
+
+@app.route('/carball')
+def carball():
+    return render_template('carball.html')
+
+@app.route('/suduko')
+def suduko():
+    return render_template('suduko.html')
+
+@app.route('/codenames')
+def codenames():
+    return render_template('codenames.html')
+
+@app.route('/chess')
+def chess():
+    return render_template('chess.html')
+
+@app.route('/bingo')
+def bingo():
+    return render_template('bingo.html')
+
+
 @app.route('/form')
 def form():
     return render_template('form.html')
+
+@app.route('/update')
+def update():
+    return render_template('update.html')
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route("/menu", methods=['GET', 'POST'])
 def menu():
@@ -81,7 +134,7 @@ def photo():
 def share():
     photo_name = request.form.get("photo_name")
     photo_path = f"./static/{photo_name}"
-    uploaded_image = im.upload_image(photo_path, title="Ankuram Robot - By Rajan Poudel")
+    uploaded_image = im.upload_image(photo_path, title="Ankuram Robot 2081")
     url = uploaded_image.link
     return render_template("share.html",url=url)
 

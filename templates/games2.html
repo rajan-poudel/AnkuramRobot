@@ -6,8 +6,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/iba_logo.png') }}">
     <title>AnkuramRobot</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style-photo.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/games2.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/games.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/arrow2.css')}}">
     <style>
         body{
             overflow: hidden;
@@ -45,7 +45,7 @@
                 </a>
             </li>
             <li class="list active">
-                <a href="/other">
+                <a href="/other2">
                     <span class="icon"><ion-icon name="apps-outline"></ion-icon></span>
                     <span class="text">Other</span>
                 </a>
@@ -86,10 +86,11 @@ arrow.addEventListener("click", function() {
     document.getElementById("arrow").style.display = "none";
     document.getElementById("navigation").style.bottom = "3vh";
 });
-        var arrow2 = document.getElementById("arrow2");
+
+var arrow2 = document.getElementById("arrow2");
 
 arrow2.addEventListener("click", function() {
-  window.location.href = "/other2"
+  window.location.href = "/other"
 });
     </script>
 
@@ -100,11 +101,11 @@ arrow2.addEventListener("click", function() {
 <div class="ag-format-container">
     <div class="ag-courses_box">
       <div class="ag-courses_item">
-        <a href="/virtualtour" class="ag-courses-item_link">
+        <a href="/navigation" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Ankuram Virtual Tour
+            Navigation
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -115,11 +116,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScIPmy_e01MHG8Szt6ulv2lDwV6sWSGa6iX5E7iqXusp7ayRA/viewform?usp=sf_link" class="ag-courses-item_link">
+        <a href="/emergency" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Forms Submission
+            Emergency Call
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -130,11 +131,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="/search" class="ag-courses-item_link">
+        <a href="/gamesfinal" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Lost and Found System
+           Games
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -145,11 +146,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="/notice" class="ag-courses-item_link">
+        <a href="/faq" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Notice
+            FAQ's About Ankuram
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -160,11 +161,11 @@ arrow2.addEventListener("click", function() {
       </div>
   
       <div class="ag-courses_item">
-        <a href="/slides" class="ag-courses-item_link">
+        <a href="/update" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Slides
+            Updating System
           </div>
   
           <div class="ag-courses-item_date-box">
@@ -174,11 +175,11 @@ arrow2.addEventListener("click", function() {
         </a>
       </div>
       <div class="ag-courses_item">
-        <a href="/menu" class="ag-courses-item_link">
+        <a href="/about" class="ag-courses-item_link">
           <div class="ag-courses-item_bg"></div>
   
           <div class="ag-courses-item_title">
-            Food Menu
+            About us
           </div>
   
           <div class="ag-courses-item_date-box">
