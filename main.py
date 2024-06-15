@@ -9,14 +9,14 @@ import re
 from datetime import datetime
 
 
-CLIENT_ID = "34982a924cfeb95"
+CLIENT_ID = ""
 im = pyimgur.Imgur(CLIENT_ID)
 
-client = MongoClient('mongodb+srv://rajanpoudelnp:HJjU4sEeDNVzOpgL@rajancluster.rpt2ua9.mongodb.net/?retryWrites=true&w=majority&appName=RajanCluster')
+client = MongoClient('')
 
 app = Flask(__name__)
 app.config['Upload_Folder'] = '/home/ankuram/AnkuramRobot/static/Upload_Folder'
-app.secret_key="supersecretkeydkdjd"
+app.secret_key=""
 
 @app.route("/")
 def hello_world():
